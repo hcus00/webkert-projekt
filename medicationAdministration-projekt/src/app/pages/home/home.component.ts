@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ADMINISTRATIONS } from 'src/app/shared/database/medication-administration.database';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  administrations = ADMINISTRATIONS;
 
   constructor() { }
 

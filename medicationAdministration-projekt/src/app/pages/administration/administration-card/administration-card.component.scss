@@ -1,0 +1,22 @@
+mat-card-title {
+    color: black;
+    font-size: 50px
+  }
+
+mat-card-subtitle{
+    font-size: 30px;
+    color: white;
+}
+
+mat-card-content {
+    font-size: 20px;
+    text-align: center;
+}
+
+mat-card {
+    display:inline-block;
+    min-width: 200px;
+    flex: 1;
+    margin: 4px;
+    background-color: lightslategray;
+}
