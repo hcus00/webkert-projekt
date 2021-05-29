@@ -1,23 +1,24 @@
 export interface MedicationAdministration {
-    identifier?: Identifier[]; //azonosító
-    instantiates?: string[]; //protokoll
-    partOf?: string[]; //egy nagyobb esemény, melynek az adminisztráció a része
-    status: string; //állapot: folyamatban, várakozik, kész, hibás, ismeretlen
-    statusReason?: CodeableConcept[]; //állapotindoklás !!!!!!!!!!
-    category?: CodeableConcept; //kategória !!!!!!!!!!!!!!!!
-    medication: CodeableConcept|string; //gyógyszer neve
-    subject: string; //embercsoport aki kapja a gyógyszert
-    context?: string; //beteg hányszor járt orvosnál, javult, nem javult..
-    supportInformation?: string[]; //plusz infók, pl magasság, testsúly stb..
-    effective: string|Period; //dátum, mettől meddig tartott, nem tartott a kezelés
-    performer?: Perfomer[]; //ki az orvos
-    reasonCode?: CodeableConcept[]; //indok, hogy miért lett kiírva a gyógyszer !!!!!!!!!!
-    reasonReference?: string[]; //állapot - megfigyelés ami indokolja a gyógyszert
-    request?: string; //hivatalos igénylés
-    device?: string[]; //igényléshez használt eszköz
-    note?: Annotation[]; //megjegyzés !!!!!!!!
-    dosage?: Dosage; //dózis, mikor, mennyit, hogyan
-    eventHistory?: string[]; //mikor lett hozzáadva az adminisztráció
+    id: string;
+    identifier?: Identifier[];
+    instantiates?: string[];
+    partOf?: string[];
+    status: string;
+    statusReason?: CodeableConcept[];
+    category?: CodeableConcept;
+    medication: string;
+    subject: string;
+    context?: string;
+    supportInformation?: string[];
+    effective: string;
+    performer?: Perfomer[];
+    reasonCode?: CodeableConcept[];
+    reasonReference?: string[];
+    request?: string;
+    device?: string[];
+    note?: Annotation[];
+    dosage?: Dosage;
+    eventHistory?: string[];
 }
 
 export interface Identifier {
@@ -58,7 +59,7 @@ export interface Dosage {
     route?: CodeableConcept; //hogyan kell bevenni
     method?: CodeableConcept; //hogyan kell beadni
     dose?: SimpleQuantity; //adag
-    rate?: Ratio|SimpleQuantity;
+    rate?: Ratio;
 }
 
 export interface Annotation {

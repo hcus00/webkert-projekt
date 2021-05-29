@@ -1,1 +1,22 @@
-<p>administration-add works!</p>
+<form [formGroup]="form" (ngSubmit)="add()">
+    <h3>Adminisztráció felvitele</h3>
+    <mat-form-field>
+        <mat-label>Dátum</mat-label>
+        <input matInput placeholder="2021-01-01" formControlName="effective" required>
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Páciens</mat-label>
+        <input matInput placeholder="Kiss János" formControlName="subject">
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Gyógyszer</mat-label>
+        <input matInput placeholder="Algopyrin" formControlName="medication">
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Státusz</mat-label>
+        <input matInput placeholder="unknown" formControlName="status">
+    </mat-form-field><br>
+    <div style="display: flex; justify-content: flex-end;">
+          <button type="submit" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid">REGISZTRÁCIÓ</button>
+      </div>
+</form>

@@ -1,4 +1,4 @@
-<mat-card *ngIf="administration">
+<mat-card *ngIf="administration" (click)="getAdministration.emit(administration)">
     <mat-card-header>
         <mat-card-title *ngFor="let elem of administration.identifier">
             <p>{{elem.use}}</p>
@@ -102,7 +102,20 @@
                 <li>{{administration.dosage.dose.system}}</li>
                 <li>{{administration.dosage.dose.code}}</li>
             </ul>
-            <p>{{administration.dosage.rate}}</p>
+            <ul *ngIf="administration.dosage.rate">
+                <ul *ngIf="administration.dosage.rate.numerator">
+                    <li>{{administration.dosage.rate.numerator.value}}</li>
+                    <li>{{administration.dosage.rate.numerator.unit}}</li>
+                    <li>{{administration.dosage.rate.numerator.system}}</li>
+                    <li>{{administration.dosage.rate.numerator.code}}</li>
+                </ul>
+                <ul *ngIf="administration.dosage.rate.denominator">
+                    <li>{{administration.dosage.rate.denominator.value}}</li>
+                    <li>{{administration.dosage.rate.denominator.unit}}</li>
+                    <li>{{administration.dosage.rate.denominator.system}}</li>
+                    <li>{{administration.dosage.rate.denominator.code}}</li>
+                </ul>
+            </ul>
         </ul>
         <p *ngFor="let elem10 of administration.eventHistory">{{elem10}}</p>
     </mat-card-content>

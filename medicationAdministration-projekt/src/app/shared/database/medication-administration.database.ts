@@ -2,6 +2,7 @@ import { MedicationAdministration } from '../models/medication-administration';
 
 export const ADMINISTRATIONS: MedicationAdministration[] = [
     {
+        id: '1',
         identifier: [{value: '01', type: {text: 'szoveg'}}],
         instantiates: ['protokoll1'],
         partOf: ['sars-cov-2 elleni oltás'],
@@ -23,6 +24,7 @@ export const ADMINISTRATIONS: MedicationAdministration[] = [
         eventHistory: ['2021-04-27 délután']
     },
     {
+        id: '2',
         identifier: [{value: '02'}],
         instantiates: ['protokoll1'],
         partOf: ['sars-cov-2 elleni oltás'],
@@ -44,6 +46,7 @@ export const ADMINISTRATIONS: MedicationAdministration[] = [
         eventHistory: ['2021-04-27 délután']
     },
     {
+        id: '3',
         identifier: [{value: '03'}],
         instantiates: ['protokoll1'],
         partOf: ['sars-cov-2 elleni oltás'],
@@ -65,6 +68,7 @@ export const ADMINISTRATIONS: MedicationAdministration[] = [
         eventHistory: ['2021-04-27 délután']
     },
     {
+        id: '4',
         identifier: [{value: '04'}],
         instantiates: ['protokoll1'],
         partOf: ['sars-cov-2 elleni oltás'],
