@@ -9,6 +9,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DetailsModule } from '../details/details.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { AdministrationAddModule } from '../administration/administration-add/administration-add.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,13 +22,15 @@ import { DetailsModule } from '../details/details.module';
   imports: [
     CommonModule,
     AdministrationCardModule,
+    AdministrationAddModule,
     NavigationModule,
     LoginModule,
     RegisterModule,
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    DetailsModule
+    MatButtonModule,
+    RouterModule
   ],
   exports: [HomeComponent]
 })

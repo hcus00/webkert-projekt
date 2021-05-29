@@ -1,22 +1,6 @@
-<span [ngSwitch]="page">
-
-    <span *ngSwitchCase="'home'">
-        <app-navigation (callSelectC)="onSelect($event)" (callSelectPage)="page = $event"></app-navigation>
-        <app-administration-card class="container" *ngFor="let administration of list | async" [administration]="administration" appOnHover (getAdministration)="goToDetails($event)"></app-administration-card>
-        <button mat-fab class="action-btn" (click)="openDialog()">
-            <mat-icon>add</mat-icon>
-        </button>
-    </span>
-      
-    <span *ngSwitchCase="'register'">
-        <app-register (callSelectPage)="page = $event"></app-register>
-    </span>
-
-    <span *ngSwitchCase="'details'">
-        <app-details></app-details>
-    </span>
-      
-    <span *ngSwitchDefault>
-        <app-login (callSelectPage)="page = $event"></app-login>
-    </span>
-</span>
+<div>
+    <app-administration-card class="container" *ngFor="let administration of list | async" [administration]="administration" appOnHover></app-administration-card>
+    <button mat-fab class="action-btn" [routerLink]="['/administration/add']">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

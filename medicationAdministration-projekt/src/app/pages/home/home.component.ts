@@ -14,7 +14,6 @@ import { FbBaseService } from 'src/app/services/fb-base.service';
 export class HomeComponent implements OnInit {
 
   administrations = ADMINISTRATIONS;
-  category?= '';
   page = 'home';
   detailData: any;
 
@@ -28,16 +27,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.get();
-    this.category = 'details';
   }
 
-  ngOnDestroy(): void {
+  /*ngOnDestroy(): void {
     delete this.category;
   }
 
   onSelect(event:string): void{
       this.category = event;
-  }
+  }*/
 
   goToDetails(event: MedicationAdministration): void {
     this.detailData = event;

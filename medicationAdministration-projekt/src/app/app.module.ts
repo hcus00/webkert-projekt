@@ -10,6 +10,9 @@ import { HomeModule } from './pages/home/home.module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { NavigationModule } from './pages/navigation/navigation.module';
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebaseconfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    HomeModule
+    HomeModule,
+    NavigationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

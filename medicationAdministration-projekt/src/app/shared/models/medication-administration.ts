@@ -1,5 +1,5 @@
 export interface MedicationAdministration {
-    id: string;
+    id?: string;
     identifier?: Identifier[];
     instantiates?: string[];
     partOf?: string[];

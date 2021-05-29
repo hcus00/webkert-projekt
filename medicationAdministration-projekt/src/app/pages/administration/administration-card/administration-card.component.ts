@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FbBaseService } from 'src/app/services/fb-base.service';
 import { MedicationAdministration, Ratio, CodeableConcept, Coding, Perfomer, Period, SimpleQuantity, Identifier, Dosage, Annotation } from './../../../shared/models/medication-administration';
@@ -14,7 +15,7 @@ export class AdministrationCardComponent implements OnInit {
   @Output() callDetails = new EventEmitter<MedicationAdministration | null>();
   @Output() getAdministration = new EventEmitter<MedicationAdministration>();
 
-  constructor() { 
+  constructor(private router: Router) { 
   }
 
   ngOnInit(): void {

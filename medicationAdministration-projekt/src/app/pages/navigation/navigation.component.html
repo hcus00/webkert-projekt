@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar">
     <mat-toolbar-row>
-      <a mat-button (click)="select('')">
+      <a mat-button [routerLink]="['home']">
         Főoldal
       </a>
       <span style="flex: 1 1;"></span>
@@ -17,7 +17,7 @@
           <mat-icon>settings</mat-icon>
           <span>Beállítások</span>
         </button>
-        <button mat-menu-item (click)="callSelectPage.emit('')">
+        <button mat-menu-item [routerLink]="['login']">
           <mat-icon>arrow_back</mat-icon>
           <span>Kijelentkezés</span>
         </button>

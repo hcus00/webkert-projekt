@@ -1,4 +1,5 @@
-<mat-card *ngIf="administration" (click)="getAdministration.emit(administration)">
+<mat-card *ngIf="administration">
+    <a [routerLink]="['/details/', administration.id]">
     <mat-card-header>
         <mat-card-title *ngFor="let elem of administration.identifier">
             <p>{{elem.use}}</p>
@@ -119,4 +120,5 @@
         </ul>
         <p *ngFor="let elem10 of administration.eventHistory">{{elem10}}</p>
     </mat-card-content>
+</a>
 </mat-card>

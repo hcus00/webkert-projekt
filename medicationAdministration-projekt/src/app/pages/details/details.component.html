@@ -1,1 +1,7 @@
-<p>details works!</p>
+<div *ngIf="administration != null">
+    Páciens: {{administration.subject}}
+    Gyógyszer: {{administration.medication}}
+</div>
+<button mat-fab class="action-btn" (click)="delete()" [routerLink]="['/home']">
+    <mat-icon>delete</mat-icon>
+</button>
