@@ -1,16 +1,14 @@
 mat-card-title {
     color: black;
-    font-size: 50px
   }
 
 mat-card-subtitle{
-    font-size: 30px;
     color: white;
 }
 
 mat-card-content {
-    font-size: 20px;
     text-align: center;
+    color: white;
 }
 
 mat-card {
@@ -18,9 +16,21 @@ mat-card {
     min-width: 200px;
     flex: 1;
     margin: 4px;
-    background-color: lightslategray;
+    background-color: #525157;
 }
 
-a {
+mat-card a:link {
+    text-decoration: none;
+}
+
+mat-card a:visited {
+    text-decoration: none;
+}
+
+mat-card a:hover {
+    text-decoration: none;
+}
+
+mat-card a:active {
     text-decoration: none;
 }

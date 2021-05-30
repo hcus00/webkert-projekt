@@ -1,8 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FbBaseService } from 'src/app/services/fb-base.service';
 import { MedicationAdministration } from 'src/app/shared/models/medication-administration';
+import { AdministrationModifyComponent } from '../administration/administration-modify/administration-modify.component';
 
 @Component({
   selector: 'app-details',
@@ -15,7 +17,7 @@ export class DetailsComponent implements OnInit {
   id: string | null = '';
   administration: MedicationAdministration | null = null;
 
-  constructor(private route: ActivatedRoute, private service: FbBaseService<any>) { 
+  constructor(private route: ActivatedRoute, private service: FbBaseService<any>, private dialog: MatDialog) { 
     const routeParams = this.route.snapshot.paramMap;
     this.id = routeParams.get('administrationId');
   }
@@ -33,6 +35,10 @@ export class DetailsComponent implements OnInit {
     if (this.id != null) {
       this.service.delete('MedicationAdministration', this.id);
     }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AdministrationModifyComponent, {});
   }
 
 }

@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NavigationModule } from './pages/navigation/navigation.module';
+import { AdministrationModifyComponent } from './pages/administration/administration-modify/administration-modify.component';
 
 
 @NgModule({

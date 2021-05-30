@@ -14,12 +14,11 @@ import { FbBaseService } from 'src/app/services/fb-base.service';
 export class HomeComponent implements OnInit {
 
   administrations = ADMINISTRATIONS;
-  page = 'home';
   detailData: any;
 
   list: Observable<MedicationAdministration[]> | null = null;
 
-  constructor(private service: FbBaseService<MedicationAdministration>, private dialog: MatDialog) { }
+  constructor(private service: FbBaseService<any>, private dialog: MatDialog) { }
 
   get(): void {
     this.list = this.service.get('MedicationAdministration');
@@ -29,27 +28,8 @@ export class HomeComponent implements OnInit {
     this.get();
   }
 
-  /*ngOnDestroy(): void {
-    delete this.category;
-  }
-
-  onSelect(event:string): void{
-      this.category = event;
-  }*/
-
-  goToDetails(event: MedicationAdministration): void {
-    this.detailData = event;
-    this.page = 'details';
-  }
-
    openDialog(): void {
     const dialogRef = this.dialog.open(AdministrationAddComponent, {});
-    // tslint:disable-next-line: deprecation
-    dialogRef.afterClosed().subscribe(result => {
-      if (result && result.title) {
-        this.administrations.push(result);
-      }
-    });
   }
 
 }

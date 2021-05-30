@@ -25,7 +25,7 @@ export class FbBaseService<T extends { id?: string }> {
     }).valueChanges() as Observable<any[]>;
   }
 
-  weakAdd(collectionName: string, data: MedicationAdministration) {
+  weakAdd(collectionName: string, data: T) {
     return this.afs.collection(collectionName).add(data);
   }
 

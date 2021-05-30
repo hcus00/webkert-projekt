@@ -1,22 +1,79 @@
-<form [formGroup]="form" (ngSubmit)="add()">
-    <h3>Adminisztráció felvitele</h3>
+<form *ngIf="form" [formGroup]="form">
+    <!-- <mat-card formArrayName="identifier">
+        <mat-card-header>
+            <mat-card-title>Azonosítók</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <button mat-raised-button (click)="addIdentifier()">
+                <mat-icon>add</mat-icon>
+            </button>
+            <span *ngFor="let item of getIdentifier.controls; let i = index">
+                <h4>Azonosító {{i+1}}</h4>
+                <mat-form-field [formGroupName]="i">
+                    <mat-label>Használat</mat-label>
+                    <input matInput type="text" formControlName="use">
+                </mat-form-field><br>
+                <mat-form-field [formGroupName]="i">
+                    <mat-label>Rendszer</mat-label>
+                    <input matInput type="text" formControlName="system">
+                </mat-form-field><br>
+                <mat-form-field [formGroupName]="i">
+                    <mat-label>Érték</mat-label>
+                    <input matInput type="text" formControlName="value">
+                </mat-form-field><br>
+                <span [formGroupName]="i" [formGroup]="codeableConceptForm">
+                    <mat-form-field>
+                        <mat-label>Szöveg</mat-label>
+                        <input type="text" formControlName="text">
+                    </mat-form-field>
+                </span>
+                <mat-form-field [formGroupName]="i">
+                    <mat-label>Megbízó</mat-label>
+                    <input matInput type="text" formControlName="assigner">
+                </mat-form-field>
+                <div [formGroupName]="'type_'+i">
+                    
+                </div>
+            </span>
+        </mat-card-content>
+    </mat-card> -->
     <mat-form-field>
         <mat-label>Dátum</mat-label>
         <input matInput placeholder="2021-01-01" formControlName="effective" required>
     </mat-form-field><br>
     <mat-form-field>
         <mat-label>Páciens</mat-label>
-        <input matInput placeholder="Kiss János" formControlName="subject">
+        <input matInput placeholder="Kiss János" formControlName="subject" required>
     </mat-form-field><br>
     <mat-form-field>
         <mat-label>Gyógyszer</mat-label>
-        <input matInput placeholder="Algopyrin" formControlName="medication">
+        <input matInput placeholder="Algopyrin" formControlName="medication" required>
     </mat-form-field><br>
     <mat-form-field>
         <mat-label>Státusz</mat-label>
-        <input matInput placeholder="unknown" formControlName="status">
+        <input matInput placeholder="unknown" formControlName="status" required>
     </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Kontextus</mat-label>
+        <input matInput type="text" placeholder="context" formControlName="context">
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Kérés</mat-label>
+        <input type="text" matInput placeholder="request" formControlName="request">
+    </mat-form-field><br>
+    <div>
+        <button mat-button (click)="addSupportInformation()">
+            <mat-icon>add</mat-icon>
+        </button>
+        <span *ngFor="let item of getSupportInformation.controls; let i = index">
+            <h4>Egyéb információ {{i+1}}</h4>
+                <mat-form-field [formGroupName]="i">
+                    <mat-label>információ</mat-label>
+                    <input matInput type="text" formControlName="supportInformation">
+                </mat-form-field><br>
+        </span>
+    </div>
     <div style="display: flex; justify-content: flex-end;">
-          <button type="submit" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid">Felvitel</button>
+          <button type="submit" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid" (click)="add()">Felvitel</button>
     </div>
 </form>

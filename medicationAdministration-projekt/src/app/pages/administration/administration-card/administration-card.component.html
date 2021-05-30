@@ -1,124 +1,12 @@
 <mat-card *ngIf="administration">
     <a [routerLink]="['/details/', administration.id]">
     <mat-card-header>
-        <mat-card-title *ngFor="let elem of administration.identifier">
-            <p>{{elem.use}}</p>
-            <ul *ngIf="elem.type">
-                <ul *ngFor="let x of elem.type.coding">
-                    <li>{{x.system}}</li>
-                    <li>{{x.version}}</li>
-                    <li>{{x.code}}</li>
-                    <li>{{x.display}}</li>
-                    <li>{{x.userSelected}}</li>
-                </ul>
-                <li>{{elem.type.text}}</li>
-            </ul>
-            <p>{{elem.system}}</p>
-            <p>{{elem.value}}</p>
-            <p *ngIf="elem.period">
-                {{elem.period.start}}, {{elem.period.end}}
-            </p>
-            <p>{{elem.assigner}}</p>
-        </mat-card-title>
-        <mat-card-subtitle *ngFor="let elem1 of administration.instantiates">{{elem1}}</mat-card-subtitle>
+        <mat-card-title>Páciens: {{administration.subject}}</mat-card-title>
+        <mat-card-subtitle>Dátum: {{administration.effective}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <p *ngFor="let elem2 of administration.partOf">{{elem2}}</p>
-        <p>{{administration.status}}</p>
-        <ul *ngFor="let elem3 of administration.statusReason">
-            <li>{{elem3.text}}</li>
-            <ul *ngFor="let x of elem3.coding">
-                <li>{{x.system}}</li>
-                <li>{{x.version}}</li>
-                <li>{{x.code}}</li>
-                <li>{{x.display}}</li>
-                <li>{{x.userSelected}}</li>
-            </ul>
-        </ul>
-        <ul *ngIf="administration.category">
-            <ul *ngFor="let x of administration.category.coding">
-                <li>{{x.system}}</li>
-                <li>{{x.version}}</li>
-                <li>{{x.code}}</li>
-                <li>{{x.display}}</li>
-                <li>{{x.userSelected}}</li>
-            </ul>
-            <li>{{administration.category.text}}</li>
-        </ul>
-        <p>{{administration.medication}}</p>
-        <p>{{administration.subject}}</p>
-        <p>{{administration.context}}</p>
-        <p *ngFor="let elem4 of administration.supportInformation">{{elem4}}</p>
-        <p>{{administration.effective}}</p>
-        <p *ngFor="let elem5 of administration.performer">{{elem5.actor}}</p>
-        <ul *ngFor="let elem6 of administration.reasonCode">
-            <ul *ngFor="let x of elem6.coding">
-                <li>{{x.system}}</li>
-                <li>{{x.version}}</li>
-                <li>{{x.code}}</li>
-                <li>{{x.display}}</li>
-                <li>{{x.userSelected}}</li>
-            </ul>
-            <li>{{elem6.text}}</li>
-        </ul>
-        <p *ngFor="let elem7 of administration.reasonReference">{{elem7}}</p>
-        <p>{{administration.request}}</p>
-        <p *ngFor="let elem8 of administration.device">{{elem8}}</p>
-        <p *ngFor="let elem9 of administration.note">{{elem9.author}}, {{elem9.time}}, {{elem9.text}}</p>
-        <ul *ngIf="administration.dosage">
-            <li>{{administration.dosage.text}}</li>
-            <ul *ngIf="administration.dosage.site">
-                <ul *ngFor="let x of administration.dosage.site.coding">
-                    <li>{{x.system}}</li>
-                    <li>{{x.version}}</li>
-                    <li>{{x.code}}</li>
-                    <li>{{x.display}}</li>
-                    <li>{{x.userSelected}}</li>
-                </ul>
-                <li>{{administration.dosage.site.text}}</li>
-            </ul>
-            <ul *ngIf="administration.dosage.route">
-                <ul *ngFor="let x of administration.dosage.route.coding">
-                    <li>{{x.system}}</li>
-                    <li>{{x.version}}</li>
-                    <li>{{x.code}}</li>
-                    <li>{{x.display}}</li>
-                    <li>{{x.userSelected}}</li>
-                </ul>
-                <li>{{administration.dosage.route.text}}</li>
-            </ul>
-            <ul *ngIf="administration.dosage.method">
-                <ul *ngFor="let x of administration.dosage.method.coding">
-                    <li>{{x.system}}</li>
-                    <li>{{x.version}}</li>
-                    <li>{{x.code}}</li>
-                    <li>{{x.display}}</li>
-                    <li>{{x.userSelected}}</li>
-                </ul>
-                <li>{{administration.dosage.method.text}}</li>
-            </ul>
-            <ul *ngIf="administration.dosage.dose">
-                <li>{{administration.dosage.dose.value}}</li>
-                <li>{{administration.dosage.dose.unit}}</li>
-                <li>{{administration.dosage.dose.system}}</li>
-                <li>{{administration.dosage.dose.code}}</li>
-            </ul>
-            <ul *ngIf="administration.dosage.rate">
-                <ul *ngIf="administration.dosage.rate.numerator">
-                    <li>{{administration.dosage.rate.numerator.value}}</li>
-                    <li>{{administration.dosage.rate.numerator.unit}}</li>
-                    <li>{{administration.dosage.rate.numerator.system}}</li>
-                    <li>{{administration.dosage.rate.numerator.code}}</li>
-                </ul>
-                <ul *ngIf="administration.dosage.rate.denominator">
-                    <li>{{administration.dosage.rate.denominator.value}}</li>
-                    <li>{{administration.dosage.rate.denominator.unit}}</li>
-                    <li>{{administration.dosage.rate.denominator.system}}</li>
-                    <li>{{administration.dosage.rate.denominator.code}}</li>
-                </ul>
-            </ul>
-        </ul>
-        <p *ngFor="let elem10 of administration.eventHistory">{{elem10}}</p>
+        <p>Gyógyszer: {{administration.medication}}</p>
+        <p>Státusz: {{administration.status}}</p>
     </mat-card-content>
-</a>
+    </a>
 </mat-card>

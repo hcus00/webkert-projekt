@@ -1,7 +1,150 @@
-<div *ngIf="administration != null">
-    Páciens: {{administration.subject}}
-    Gyógyszer: {{administration.medication}}
-</div>
+<mat-card *ngIf="administration != null" class="details">
+        <mat-card-header>
+            <p *ngIf="administration.identifier">Identifier: </p>
+            <div *ngFor="let elem of administration.identifier">
+                <br><p>Use: {{elem.use}}</p>
+                <ng-container *ngIf="elem.type">
+                    <span *ngFor="let x of elem.type.coding">
+                        <p>System: {{x.system}}</p>
+                        <p>Version: {{x.version}}</p>
+                        <p>Code: {{x.code}}</p>
+                        <p>Display: {{x.display}}</p>
+                        <p>userSelected: {{x.userSelected}}</p>
+                    </span>
+                    <p>Text: {{elem.type.text}}</p>
+                </ng-container>
+                <p>System: {{elem.system}}</p>
+                <p>Value: {{elem.value}}</p>
+                <ng-container *ngIf="elem.period">
+                    Period: {{elem.period.start}} - {{elem.period.end}}
+                </ng-container>
+                <p>Assigner: {{elem.assigner}}</p>
+            </div>
+            <div *ngFor="let elem1 of administration.instantiates">{{elem1}}</div>
+        </mat-card-header>
+        <mat-card-content>
+            <p *ngFor="let elem2 of administration.partOf">PartOf: {{elem2}}</p>
+            <p *ngIf="administration.status">Status: {{administration.status}}</p>
+            <p *ngIf="administration.statusReason">statusReason: </p>
+            <ng-container *ngFor="let elem3 of administration.statusReason">
+                <br><p>Text: {{elem3.text}}</p>
+                <span *ngFor="let x of elem3.coding">
+                    <p>System: {{x.system}}</p>
+                    <p>Version: {{x.version}}</p>
+                    <p>Code: {{x.code}}</p>
+                    <p>Display: {{x.display}}</p>
+                    <p>userSelected: {{x.userSelected}}</p>
+                </span>
+            </ng-container>
+            <ng-container *ngIf="administration.category">
+                <p>Category: </p>
+                <span *ngFor="let x of administration.category.coding">
+                    <p>System: {{x.system}}</p>
+                    <p>version: {{x.version}}</p>
+                    <p>code: {{x.code}}</p>
+                    <p>display: {{x.display}}</p>
+                    <p>userSelected: {{x.userSelected}}</p>
+                </span>
+                <p>Text: {{administration.category.text}}</p>
+            </ng-container>
+            <p *ngIf="administration.medication">Medication: {{administration.medication}}</p>
+            <p *ngIf="administration.subject">Subject: {{administration.subject}}</p>
+            <p *ngIf="administration.context">Context: {{administration.context}}</p>
+            <p *ngIf="administration.supportInformation">supportInformation: </p>
+            <p *ngFor="let elem4 of administration.supportInformation">{{elem4}}</p>
+            <p *ngIf="administration.effective">Effective: {{administration.effective}}</p>
+            <div *ngIf="administration.performer">
+                <p>performer: </p>
+                <div *ngFor="let elem5 of administration.performer">
+                    <!-- <span *ngIf="administration.performer.function">
+
+                    </span> -->
+                    Actor: {{elem5.actor}}
+                </div>
+            </div>
+            <p *ngIf="administration.reasonCode">reasonCode: </p>
+            <ng-container *ngFor="let elem6 of administration.reasonCode">
+                <span *ngFor="let x of elem6.coding">
+                    <p>System: {{x.system}}</p>
+                    <p>version: {{x.version}}</p>
+                    <p>code: {{x.code}}</p>
+                    <p>display: {{x.display}}</p>
+                    <p>userSelected: {{x.userSelected}}</p>
+                </span>
+                <p>Text: {{elem6.text}}</p>
+            </ng-container>
+            <p *ngFor="let elem7 of administration.reasonReference">reasonReference: {{elem7}}</p>
+            <p>{{administration.request}}</p>
+            <p *ngFor="let elem8 of administration.device">device: {{elem8}}</p>
+            <p *ngFor="let elem9 of administration.note">note: {{elem9.author}}, {{elem9.time}}, {{elem9.text}}</p>
+            <p *ngIf="administration.dosage">dosage: </p>
+            <ng-container *ngIf="administration.dosage">
+                <p>Text: {{administration.dosage.text}}</p>
+                <ng-container *ngIf="administration.dosage.site">
+                    <p>Site: </p>
+                    <span *ngFor="let x of administration.dosage.site.coding">
+                        <p>system: {{x.system}}</p>
+                        <p>version: {{x.version}}</p>
+                        <p>code: {{x.code}}</p>
+                        <p>display: {{x.display}}</p>
+                        <p>userSelected: {{x.userSelected}}</p>
+                    </span>
+                    <p>Text: {{administration.dosage.site.text}}</p>
+                </ng-container>
+                <ng-container *ngIf="administration.dosage.route">
+                    <p>Route: </p>
+                    <span *ngFor="let x of administration.dosage.route.coding">
+                        <p>system: {{x.system}}</p>
+                        <p>version: {{x.version}}</p>
+                        <p>code: {{x.code}}</p>
+                        <p>display: {{x.display}}</p>
+                        <p>userSelected: {{x.userSelected}}</p>
+                    </span>
+                    <p>Text: {{administration.dosage.route.text}}</p>
+                </ng-container>
+                <ng-container *ngIf="administration.dosage.method">
+                    <p>Method: </p>
+                    <span *ngFor="let x of administration.dosage.method.coding">
+                        <p>system: {{x.system}}</p>
+                        <p>version: {{x.version}}</p>
+                        <p>code: {{x.code}}</p>
+                        <p>display: {{x.display}}</p>
+                        <p>userSelected: {{x.userSelected}}</p>
+                    </span>
+                    <p>text: {{administration.dosage.method.text}}</p>
+                </ng-container>
+                <ng-container *ngIf="administration.dosage.dose">
+                    <p>Dose: </p>
+                    <p>value: {{administration.dosage.dose.value}}</p>
+                    <p>unit: {{administration.dosage.dose.unit}}</p>
+                    <p>system: {{administration.dosage.dose.system}}</p>
+                    <p>code: {{administration.dosage.dose.code}}</p>
+                </ng-container>
+                <ng-container *ngIf="administration.dosage.rate">
+                    <p>Rate: </p>
+                    <span *ngIf="administration.dosage.rate.numerator">
+                        <p>numerator: </p>
+                        <p>value: {{administration.dosage.rate.numerator.value}}</p>
+                        <p>unit: {{administration.dosage.rate.numerator.unit}}</p>
+                        <p>system: {{administration.dosage.rate.numerator.system}}</p>
+                        <p>code: {{administration.dosage.rate.numerator.code}}</p>
+                    </span>
+                    <span *ngIf="administration.dosage.rate.denominator">
+                        <p>denominator: </p>
+                        <p>value: {{administration.dosage.rate.denominator.value}}</p>
+                        <p>unit: {{administration.dosage.rate.denominator.unit}}</p>
+                        <p>system: {{administration.dosage.rate.denominator.system}}</p>
+                        <p>code: {{administration.dosage.rate.denominator.code}}</p>
+                    </span>
+                </ng-container>
+            </ng-container>
+            <p *ngFor="let elem10 of administration.eventHistory">eventHistory: {{elem10}}</p>
+        </mat-card-content>
+    
+    </mat-card>
 <button mat-fab class="action-btn" (click)="delete()" [routerLink]="['/home']">
     <mat-icon>delete</mat-icon>
+</button>
+<button mat-fab class="action-btn" (click)="openDialog()">
+    <mat-icon>edit</mat-icon>
 </button>

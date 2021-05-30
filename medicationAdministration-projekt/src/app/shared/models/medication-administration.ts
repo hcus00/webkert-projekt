@@ -49,16 +49,16 @@ export interface Period {
 }
 
 export interface Perfomer {
-    function?: CodeableConcept; //feladat
-    actor: string; //ki csinálta
+    function?: CodeableConcept;
+    actor: string;
 }
 
 export interface Dosage {
-    text?: string; //leírás
-    site?: CodeableConcept; //pl. bal kéz
-    route?: CodeableConcept; //hogyan kell bevenni
-    method?: CodeableConcept; //hogyan kell beadni
-    dose?: SimpleQuantity; //adag
+    text?: string;
+    site?: CodeableConcept;
+    route?: CodeableConcept;
+    method?: CodeableConcept;
+    dose?: SimpleQuantity;
     rate?: Ratio;
 }
 

@@ -1,6 +1,6 @@
 <div>
     <app-administration-card class="container" *ngFor="let administration of list | async" [administration]="administration" appOnHover></app-administration-card>
-    <button mat-fab class="action-btn" [routerLink]="['/administration/add']">
+    <button mat-fab class="action-btn" (click)="openDialog()">
         <mat-icon>add</mat-icon>
     </button>
 </div>

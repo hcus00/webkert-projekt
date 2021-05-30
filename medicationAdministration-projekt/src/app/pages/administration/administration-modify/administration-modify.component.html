@@ -1,0 +1,41 @@
+<form *ngIf="form && administration" [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Dátum</mat-label>
+        <input matInput placeholder="2021-01-01" formControlName="effective" [value]="administration.effective" required>
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Páciens</mat-label>
+        <input matInput placeholder="Kiss János" formControlName="subject" [value]="administration.subject" required>
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Gyógyszer</mat-label>
+        <input matInput placeholder="Algopyrin" formControlName="medication" [value]="administration.medication" required>
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Státusz</mat-label>
+        <input matInput placeholder="unknown" formControlName="status" [value]="administration.status" required>
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Kontextus</mat-label>
+        <input matInput type="text" placeholder="context" formControlName="context" [value]="administration.context">
+    </mat-form-field><br>
+    <mat-form-field>
+        <mat-label>Kérés</mat-label>
+        <input type="text" matInput placeholder="request" formControlName="request" [value]="administration.request">
+    </mat-form-field><br>
+    <!-- <div>
+        <button mat-button (click)="addSupportInformation()">
+            <mat-icon>add</mat-icon>
+        </button>
+        <span *ngFor="let item of getSupportInformation.controls; let i = index">
+            <h4>Egyéb információ {{i+1}}</h4>
+                <mat-form-field [formGroupName]="i">
+                    <mat-label>információ</mat-label>
+                    <input matInput type="text" formControlName="supportInformation">
+                </mat-form-field><br>
+        </span>
+    </div> -->
+    <div style="display: flex; justify-content: flex-end;">
+          <button type="submit" mat-raised-button color="primary" class="max-width" [disabled]="form.invalid" (click)="modify()">Felvitel</button>
+    </div>
+</form>

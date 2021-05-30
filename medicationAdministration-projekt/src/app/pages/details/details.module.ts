@@ -5,6 +5,8 @@ import { AdministrationCardModule } from '../administration/administration-card/
 import { RouterModule } from '@angular/router';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { AdministrationModifyModule } from '../administration/administration-modify/administration-modify.module';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -15,7 +17,9 @@ import { MatIconModule } from '@angular/material/icon';
     AdministrationCardModule,
     RouterModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    AdministrationModifyModule,
+    MatCardModule
   ],
   exports: [DetailsComponent]
 })
