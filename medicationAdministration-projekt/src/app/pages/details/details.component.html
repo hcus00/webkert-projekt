@@ -74,7 +74,7 @@
                 <p>Text: {{elem6.text}}</p>
             </ng-container>
             <p *ngFor="let elem7 of administration.reasonReference">reasonReference: {{elem7}}</p>
-            <p>{{administration.request}}</p>
+            <p *ngIf="administration.request">Request: {{administration.request}}</p>
             <p *ngFor="let elem8 of administration.device">device: {{elem8}}</p>
             <p *ngFor="let elem9 of administration.note">note: {{elem9.author}}, {{elem9.time}}, {{elem9.text}}</p>
             <p *ngIf="administration.dosage">dosage: </p>
