@@ -142,9 +142,11 @@
         </mat-card-content>
     
     </mat-card>
-<button mat-fab class="action-btn" (click)="delete()" [routerLink]="['/home']">
-    <mat-icon>delete</mat-icon>
-</button>
-<button mat-fab class="action-btn" (click)="openDialog()">
-    <mat-icon>edit</mat-icon>
-</button>
+    <div class="buttons">
+        <button mat-fab class="action-btn" (click)="delete()" [routerLink]="['/home']">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-fab class="action-btn" (click)="openDialog()">
+            <mat-icon>edit</mat-icon>
+        </button>
+    </div>
